@@ -27,9 +27,7 @@ class UserModel {
 
     Future<void> addPoints({required bool isRight}) async {
     if (!isRight) return;
-
     final userRef = FirebaseFirestore.instance.collection('users').doc(id);
-
     try {
       await userRef.update({
         'pontos': FieldValue.increment(1),
